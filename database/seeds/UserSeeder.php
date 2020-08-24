@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
         ]);
 
         // Student User
-        $admin = User::create([
+        $student = User::create([
             'role_id'           => 3,
             'name'              => 'Student',
             'email'             => 'student@gmail.com',
