@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherMiddleware
 {
@@ -18,8 +18,9 @@ class TeacherMiddleware
     {
         if(Auth::check() && Auth::user()->role->id == 2) {
             return $next($request);
+        } else {
+            return redirect()->route('login');
         }
-        return redirect()->route('login');
     }
 
 }
