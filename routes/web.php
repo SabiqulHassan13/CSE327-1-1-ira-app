@@ -18,5 +18,37 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Admin Routes
+Route::group([
+    'prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 
+    'middleware' => ['auth', 'admin']], function() {
+
+    // Admin Dashboard
+    Route::get('/home', 'HomeController@dashboard')->name('dashboard');
+
+});
+
+
+// Teacher Routes
+Route::group([
+    'prefix' => 'teacher', 'namespace' => 'Teacher', 'as' => 'teacher.', 
+    'middleware' => ['auth', 'teacher']], function() {
+
+    // Teacher Dashboard
+    Route::get('/home', 'HomeController@dashboard')->name('dashboard');
+
+});
+
+
+// Student Routes
+Route::group([
+    'prefix' => 'student', 'namespace' => 'Student', 'as' => 'student.', 
+    'middleware' => ['auth', 'student']], function() {
+        
+    // Student Dashboard
+    Route::get('/home', 'HomeController@dashboard')->name('dashboard');
+
+});
