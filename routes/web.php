@@ -22,6 +22,11 @@ Auth::routes();
 
 // Frontend Routes
 Route::get('/', 'FrontendController@home')->name('home');
+Route::get('/about', 'FrontendController@about')->name('about');
+Route::get('/team', 'FrontendController@team')->name('team');
+Route::get('/contact', 'FrontendController@contact')->name('contact');
+
+Route::get('/course', 'FrontendController@singleCourse')->name('course');
 
 
 // Admin Routes

@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Tutor</title>
+    <title>IRA-App</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -44,7 +44,7 @@
 
             <div class="col-3">
               <div class="site-logo">
-                <a href="index.html"><strong>Tutor</strong></a>
+                <a href="{{ route('home') }}"><strong>IRA-App</strong></a>
               </div>
             </div>
 
@@ -54,10 +54,10 @@
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="index.html" class="nav-link">Home</a></li>
-                  <li><a href="about.html" class="nav-link">About</a></li>
-                  <li><a href="about.html" class="nav-link">Our Team</a></li>
-                  <li><a href="contact.html" class="nav-link">Contact</a></li>
+                  <li class="active"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+                  <li><a href="{{ route('about') }}" class="nav-link">About</a></li>
+                  <li><a href="{{ route('team') }}" class="nav-link">Our Team</a></li>
+                  <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                 </ul>
               </nav>
             </div>
@@ -68,7 +68,7 @@
 
       </header>
 
-      
+      {{-- main section  --}}
       @yield('content')
       
       
