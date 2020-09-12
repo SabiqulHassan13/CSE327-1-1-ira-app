@@ -58,6 +58,7 @@
                   <li><a href="{{ route('about') }}" class="nav-link">About</a></li>
                   <li><a href="{{ route('team') }}" class="nav-link">Our Team</a></li>
                   <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+                  <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                 </ul>
               </nav>
             </div>
