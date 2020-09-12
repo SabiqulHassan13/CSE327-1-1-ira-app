@@ -40,6 +40,9 @@ Route::group([
     // Role routes
     Route::resource('roles', 'RoleController');
 
+    // User routes
+    Route::resource('users', 'UserController');
+
 });
 
 
