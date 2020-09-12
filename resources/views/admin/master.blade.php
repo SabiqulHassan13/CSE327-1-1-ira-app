@@ -187,25 +187,25 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('admin.users.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>Users</p>
             </a>
           </li>
           <li class="nav-item">
           <a href="{{ route('admin.roles.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>Roles</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>Courses</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>Assignments</p>
             </a>
           </li>
