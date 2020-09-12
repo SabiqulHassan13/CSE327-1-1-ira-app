@@ -37,6 +37,9 @@ Route::group([
     // Admin Dashboard
     Route::get('/home', 'HomeController@dashboard')->name('dashboard');
 
+    // Role routes
+    Route::resource('roles', 'RoleController');
+
 });
 
 
