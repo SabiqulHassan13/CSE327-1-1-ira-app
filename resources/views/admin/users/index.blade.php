@@ -6,8 +6,8 @@
     <div class="col-md-12">        
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Users List</h3>
-                <a href="" class="btn btn-success py-0">Create a User</a>
+                <h3 class="card-title">User List</h3>
+            <a href="{{ route('admin.users.create') }}" class="btn btn-success py-0">Create a User</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
