@@ -18,12 +18,12 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('user_id');  // For teacher
             $table->string('title');
             $table->string('slug');
-            $table->string('image');
-            $table->string('short_text');
-            $table->longText('long_text');
+            $table->string('image')->nullable();
+            $table->string('short_text')->nullable();
+            $table->longText('long_text')->nullable();
             $table->string('joining_code');
             $table->string('batch_no');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->date('started_at');
             $table->timestamps();
         });
