@@ -43,6 +43,9 @@ Route::group([
     // User routes
     Route::resource('users', 'UserController');
 
+    // Course routes
+    Route::resource('courses', 'CourseController');
+
 });
 
 

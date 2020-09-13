@@ -21,7 +21,7 @@ class CourseSeeder extends Seeder
             'image'         => 'images/default/html5.jpg',
             'short_text'    => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, est?',
             'long_text'     => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nihil aliquam voluptatum beatae quibusdam iure temporibus enim, libero voluptatibus odio nemo impedit voluptates provident expedita consequatur quas consectetur? Id, voluptatem!',
-            'joinning_code' => 'html5b01',
+            'joining_code' => 'html5b01',
             'batch_no'      => '01',
             'status'        => 1,
             'started_at'    => now()            
@@ -35,7 +35,7 @@ class CourseSeeder extends Seeder
             'image'         => 'images/default/css3.jpg',
             'short_text'    => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, est?',
             'long_text'     => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nihil aliquam voluptatum beatae quibusdam iure temporibus enim, libero voluptatibus odio nemo impedit voluptates provident expedita consequatur quas consectetur? Id, voluptatem!',
-            'joinning_code' => 'css3b01',
+            'joining_code' => 'css3b01',
             'batch_no'      => '01',
             'status'        => 1,
             'started_at'    => now()            
@@ -49,7 +49,7 @@ class CourseSeeder extends Seeder
             'image'         => 'images/default/js.png',
             'short_text'    => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, est?',
             'long_text'     => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nihil aliquam voluptatum beatae quibusdam iure temporibus enim, libero voluptatibus odio nemo impedit voluptates provident expedita consequatur quas consectetur? Id, voluptatem!',
-            'joinning_code' => 'jsb01',
+            'joining_code' => 'jsb01',
             'batch_no'      => '01',
             'status'        => 1,
             'started_at'    => now()            
