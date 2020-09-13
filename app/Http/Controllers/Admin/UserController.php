@@ -46,20 +46,20 @@ class UserController extends Controller
         //
         // return $request->all();
         $this->validate($request, [
-            'name'   => 'required',
-            'email' =>  'required',
-            'password' =>  'required|min:6',
-            'role_id' =>  'required',
+            'name'      => 'required',
+            'email'     =>  'required',
+            'password'  =>  'required|min:6',
+            'role_id'   =>  'required',
         ]);
 
         User::create([
             'name'      => $request->name,
-            'email'    => $request->email,
-            'password'    => bcrypt($request->password),
-            'role_id'    => $request->role_id,
+            'email'     => $request->email,
+            'password'  => bcrypt($request->password),
+            'role_id'   => $request->role_id,
         ]);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('success','User created successfully');
     }
 
     /**
@@ -79,9 +79,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
+        $roles = Role::all();
+        return view('admin.users.edit', ['user' => $user, 'roles' => $roles]);
     }
 
     /**
@@ -91,9 +93,24 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         //
+        $this->validate($request, [
+            'name'      => 'required',
+            'email'     =>  'required',
+            'password'  =>  'nullable|min:6',
+            'role_id'   =>  'required',
+        ]);
+
+        $user->update([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => bcrypt($request->password),
+            'role_id'   => $request->role_id,
+        ]);
+
+        return redirect()->route('admin.users.index')->with('success','User updated successfully');
     }
 
     /**
@@ -102,8 +119,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         //
+        $user->delete();
+  
+        return redirect()->route('products.index')->with('success','User deleted successfully');
     }
 }
