@@ -28,9 +28,15 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role->name }}</td>
-                        <td>
-                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>    
-                            <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>    
+                        <td class="d-flex ">
+                            <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm mr-1"><i class="fa fa-edit"></i></a>    
+
+                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+                                @csrf 
+                                @method('DELETE')
+                                
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                            </form>    
                         </td>                            
                     </tr>
                     @empty
