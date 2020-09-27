@@ -25,7 +25,7 @@ class FrontendController extends Controller
     }
 
     public function singleCourse(Course $course) {
-        return view('frontend.course.course');
+        return view('frontend.course.course', ['course' => $course]);
     }
 
 
