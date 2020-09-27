@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+Use App\Assignment;
+Use App\Course;
 
 class AssignmentController extends Controller
 {
@@ -15,6 +17,9 @@ class AssignmentController extends Controller
     public function index()
     {
         //
+        $assignments = Assignment::with(['course'])->paginate(5);
+
+        return view('admin.assignments.index', ['assignments' => $assignments]);
     }
 
     /**
@@ -25,6 +30,9 @@ class AssignmentController extends Controller
     public function create()
     {
         //
+        $courses = Course::all();
+        
+        return view('admin.assignments.create', ['courses' => $courses]);
     }
 
     /**

@@ -46,6 +46,9 @@ Route::group([
     // Course routes
     Route::resource('courses', 'CourseController');
 
+    // Assignment routes
+    Route::resource('assignments', 'AssignmentController');
+
 });
 
 
