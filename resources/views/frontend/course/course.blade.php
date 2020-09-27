@@ -24,7 +24,7 @@
         <div class="col-lg-12">
           <div class="box h-100">
             <div class="d-flex align-items-center">
-              <div class="img"><img src="{{ asset('images/default/' . $course->image) }}" class="img-fluid" alt="Image"></div>
+              <div class="img"><img src="{{ asset('images/courses/' . $course->image) }}" class="img-fluid" alt="Image"></div>
               <div class="text">
                 <a href="#" class="category">Course</a>
                 <h3><a href="#">{{ $course->title }}</a></h3>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+Use Illuminate\Support\Str;
 Use App\Assignment;
 Use App\Course;
 
@@ -31,7 +32,7 @@ class AssignmentController extends Controller
     {
         //
         $courses = Course::all();
-        
+
         return view('admin.assignments.create', ['courses' => $courses]);
     }
 
@@ -43,7 +44,37 @@ class AssignmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+
+        $this->validate($request, [
+            'title'         => 'required',
+            'description'   => 'required',
+            'course_id'     => 'required',
+            'file'          => 'nullable|mimes:jpg,jpeg,png,pdf,xlx,csv,docx,doc',            
+            'due_at'        => 'nullable|date_format:Y-m-d',
+        ]);
+
+        $file = $request->file('file');
+        if($file) {
+            $fileName = time() . "." . $file->getClientOriginalExtension();
+            $uploadPath = 'images/assignments/';
+            $file->move($uploadPath, $fileName);
+        }
+        else {
+            $fileName = '';
+        }
+        // dd($request->all());
+
+        Assignment::create([
+            'title'         => $request->title,
+            'slug'          => Str::slug($request->title),
+            'description'   => $request->description,
+            'course_id'     => $request->course_id,
+            'file'          => $fileName,
+            'due_at'        => $request->due_at,            
+        ]);
+
+        return redirect()->route('admin.assignments.index')->with('success','Assignment created successfully');
     }
 
     /**

@@ -42,7 +42,7 @@
           @foreach ($courses as $course)              
           <div class="d-flex tutorial-item mb-4">
             <div class="img-wrap">
-              <a href="#"><img src="{{ asset('images/default/' . $course->image) }}" alt="Image" class="img-fluid"></a>
+              <a href="#"><img src="{{ asset('images/courses/' . $course->image) }}" alt="Image" class="img-fluid"></a>
             </div>
             <div>
               <h3><a href="#">{{ $course->title }}</a> <span class="ml-2">| Batch No: {{ $course->batch_no }}</span></h3>

@@ -30,8 +30,12 @@
                         <td>{{ $assignment->description }}</td>
                         <td>{{ $assignment->course_id }}</td>
                         <td>{{ $assignment->due_at }}</td>                     
-                        <td class="d-flex ">
-                            <a href="{{ route('admin.assignments.edit', $assignment->id) }}" class="btn btn-warning btn-sm mr-1"><i class="fa fa-eye"></i></a>    
+                        <td class="d-flex justify-content-between">
+                            <a href="{{ asset('images/assignments/' . $assignment->file) }}" class="btn btn-info btn-sm mr-1"><i class="fa fa-sign-in-alt"></i></a>
+
+                            <a href="{{ route('admin.assignments.edit', $assignment->id) }}" class="btn btn-success btn-sm mr-1"><i class="fa fa-download"></i></a>
+
+                            <a href="{{ route('admin.assignments.edit', $assignment->id) }}" class="btn btn-warning btn-sm mr-1"><i class="far fa-edit"></i></a>
 
                             <form action="{{ route('admin.assignments.destroy', $assignment->id) }}" method="POST">
                                 @csrf 
