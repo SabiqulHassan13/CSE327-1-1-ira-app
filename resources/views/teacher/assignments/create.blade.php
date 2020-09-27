@@ -37,7 +37,7 @@
                 @endif
 
                 <!-- form start -->
-                <form action="{{ route('admin.assignments.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('teacher.assignments.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">

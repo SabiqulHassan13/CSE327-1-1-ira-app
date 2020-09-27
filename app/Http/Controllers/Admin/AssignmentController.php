@@ -148,7 +148,8 @@ class AssignmentController extends Controller
 
         $file = $request->file('file');
         if($file) {
-            unlink('images/assignments/' . $assignment->file);
+            // unlink('images/assignments/' . $assignment->file);
+            unlink(public_path('images/assignments/' . $assignment->file));
 
             $fileName = time() . "." . $file->getClientOriginalExtension();
             $uploadPath = 'images/assignments/';

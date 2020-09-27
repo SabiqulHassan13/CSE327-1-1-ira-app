@@ -73,7 +73,7 @@ class AssignmentController extends Controller
             'due_at'        => $request->due_at,            
         ]);
 
-        return redirect()->route('teacher.dashboard')->with('success','Assignment created successfully');
+        return redirect()->route('teacher.home')->with('success','Assignment created successfully');
     }
 
     /**
@@ -96,6 +96,10 @@ class AssignmentController extends Controller
     public function edit($id)
     {
         //
+        $assignment = Assignment::where('id', $id)->first();
+        // $courses = Course::all();
+
+        return view('teacher.assignments.edit', ['assignment' => $assignment]);
     }
 
     /**
@@ -108,6 +112,40 @@ class AssignmentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+        $this->validate($request, [
+            'title'         => 'required',
+            'description'   => 'required',
+            'course_id'     => 'required',
+            'file'          => 'nullable|mimes:jpg,jpeg,png,pdf,xlx,csv,docx,doc',            
+            'due_at'        => 'nullable|date_format:Y-m-d',
+        ]);
+
+        $assignment = Assignment::where('id', $id)->first();
+
+        $file = $request->file('file');
+        if($file) {
+            // unlink('images/assignments/' . $assignment->file);
+            unlink(public_path('images/assignments/' . $assignment->file));
+
+
+            $fileName = time() . "." . $file->getClientOriginalExtension();
+            $uploadPath = 'images/assignments/';
+            $file->move($uploadPath, $fileName);
+        }
+        else {
+            $fileName = $assignment->file;
+        }
+
+        $assignment->title         = $request->title;
+        $assignment->slug          = Str::slug($request->title);
+        $assignment->description   = $request->description;
+        $assignment->course_id     = $request->course_id;
+        $assignment->file          = $fileName;
+        $assignment->due_at        = $request->due_at;           
+        $assignment->save();           
+
+        return redirect()->route('teacher.home')->with('success','Assignment updated successfully');
     }
 
     /**

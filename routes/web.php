@@ -90,9 +90,9 @@ Route::group([
     Route::get('/home', 'HomeController@home')->name('home');
 
     // Enrolement in Course
-    Route::get('/enrolments', 'EnrolementController@index')->name('enrolment.index');
-    Route::get('/enrolments/create', 'EnrolementController@create')->name('enrolment.create');
-    Route::post('/enrolments', 'EnrolementController@store')->name('enrolment.store');
+    // Route::get('/enrolments', 'EnrolementController@index')->name('enrolment.index');
+    // Route::get('/enrolments/create', 'EnrolementController@create')->name('enrolment.create');
+    // Route::post('/enrolments', 'EnrolementController@store')->name('enrolment.store');
 
 
 });
