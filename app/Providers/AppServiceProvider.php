@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         // Share courses in frontend
         View::composer('frontend.home.home',function ($view) {
             // $courses = Course::with(['user'])->get();
-            $courses = Course::with(['user'])->paginate(2);
+            $courses = Course::with(['user'])->latest()->paginate(2);
             $view->with('courses', $courses);            
         });
 

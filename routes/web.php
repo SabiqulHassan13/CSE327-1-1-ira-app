@@ -26,7 +26,7 @@ Route::get('/about', 'FrontendController@about')->name('about');
 Route::get('/team', 'FrontendController@team')->name('team');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 
-Route::get('/course', 'FrontendController@singleCourse')->name('course');
+Route::get('/courses/{course}', 'FrontendController@singleCourse')->name('courses');
 
 
 // Admin Routes

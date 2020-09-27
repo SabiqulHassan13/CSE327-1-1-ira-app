@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Course;
 
 class FrontendController extends Controller
 {
@@ -23,7 +24,7 @@ class FrontendController extends Controller
         return view('frontend.contact.contact');
     }
 
-    public function singleCourse() {
+    public function singleCourse(Course $course) {
         return view('frontend.course.course');
     }
 
