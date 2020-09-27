@@ -20,4 +20,9 @@ class Course extends Model
         return $this->belongsTo('App\User');
     }
 
+    // one course has many assignments
+    public function assignments() {
+        return $this->hasMany('App\Assignment');
+    }
+
 }
