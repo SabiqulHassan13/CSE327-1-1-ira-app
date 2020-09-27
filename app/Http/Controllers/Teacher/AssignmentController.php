@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+Use Illuminate\Support\Str;
+Use App\Assignment;
+Use App\Course;
 
 class AssignmentController extends Controller
 {
@@ -22,9 +26,13 @@ class AssignmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $course = Course::where('id', $request->course_id)->first();
+        // return $course;
+
+        return view('teacher.assignments.create', ['course' => $course]);
     }
 
     /**
@@ -35,7 +43,37 @@ class AssignmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
+        
+        $this->validate($request, [
+            'title'         => 'required',
+            'description'   => 'required',
+            'course_id'     => 'required',
+            'file'          => 'nullable|mimes:jpg,jpeg,png,pdf,xlx,csv,docx,doc',            
+            'due_at'        => 'nullable|date_format:Y-m-d',
+        ]);
+
+
+        $file = $request->file('file');
+        if($file) {
+            $fileName = time() . "." . $file->getClientOriginalExtension();
+            $uploadPath = 'images/assignments/';
+            $file->move($uploadPath, $fileName);
+        }
+        else {
+            $fileName = '';
+        }
+
+        Assignment::create([
+            'title'         => $request->title,
+            'slug'          => Str::slug($request->title),
+            'description'   => $request->description,
+            'course_id'     => $request->course_id,
+            'file'          => $fileName,
+            'due_at'        => $request->due_at,            
+        ]);
+
+        return redirect()->route('teacher.dashboard')->with('success','Assignment created successfully');
     }
 
     /**
