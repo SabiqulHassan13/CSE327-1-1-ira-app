@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Role;
 use App\Course;
+use App\Assignment;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -41,6 +42,12 @@ class AppServiceProvider extends ServiceProvider
             $courses = Course::with(['user'])->latest()->paginate(2);
             $view->with('courses', $courses);            
         });
+
+        // Share assignments in frontend course page 
+        // View::composer('frontend.course.course',function ($view) {
+        //     $assignments = Assignment::with(['course'])->latest();
+        //     $view->with('assignments', $assignments);            
+        // });
 
     }
 }

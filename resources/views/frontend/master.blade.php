@@ -1,7 +1,6 @@
 <!doctype html>
-<html lang="en">
-
-  <head>
+  <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
     <title>IRA-App</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,7 +57,45 @@
                   <li><a href="{{ route('about') }}" class="nav-link">About</a></li>
                   <li><a href="{{ route('team') }}" class="nav-link">Our Team</a></li>
                   <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-                  <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                  {{-- <li><a href="{{ route('login') }}" class="nav-link">Login</a></li> --}}
+                  @guest
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                      </li>
+                      @if (Route::has('register'))
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                          </li>
+                      @endif
+                  @else
+                      <li class="nav-item">
+                          {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              {{ Auth::user()->name }} <span class="caret"></span>
+                          </a> --}}
+
+                          {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
+                              <a class="nav-link" href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csrf
+                              </form>
+                          {{-- </div> --}}
+                      </li>
+                      <li class="nav-item">
+                        @if (Auth::user()->role_id == 3)                          
+                          <a class="nav-link" href="{{ route('student.home') }}">{{ __('Dashboard 3') }}</a>
+                        @elseif (Auth::user()->role_id == 2)                          
+                          <a class="nav-link" href="{{ route('teacher.home') }}">{{ __('Dashboard 2') }}</a>
+                        @elseif (Auth::user()->role_id == 1)                          
+                          <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Dashboard 1') }}</a>
+                        @endif
+                    </li>
+                  @endguest
+
                 </ul>
               </nav>
             </div>
@@ -148,19 +185,17 @@
 
     </div>
 
-    <script src="{{ asset('frontend') }}/jsjquery-3.3.1.min.js"></script>
-    <script src="{{ asset('frontend') }}/jspopper.min.js"></script>
-    <script src="{{ asset('frontend') }}/jsbootstrap.min.js"></script>
-    <script src="{{ asset('frontend') }}/jsowl.carousel.min.js"></script>
-    <script src="{{ asset('frontend') }}/jsjquery.sticky.js"></script>
-    <script src="{{ asset('frontend') }}/jsjquery.waypoints.min.js"></script>
-    <script src="{{ asset('frontend') }}/jsjquery.animateNumber.min.js"></script>
-    <script src="{{ asset('frontend') }}/jsjquery.fancybox.min.js"></script>
-    <script src="{{ asset('frontend') }}/jsjquery.easing.1.3.js"></script>
-    <script src="{{ asset('frontend') }}/jsbootstrap-datepicker.min.js"></script>
-    <script src="{{ asset('frontend') }}/jsaos.js"></script>
-    <script src="{{ asset('frontend') }}/jsmain.js"></script>
-
+    <script src="{{ asset('frontend') }}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/popper.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/owl.carousel.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.sticky.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.waypoints.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.animateNumber.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.fancybox.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.easing.1.3.js"></script>
+    <script src="{{ asset('frontend') }}/js/bootstrap-datepicker.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/aos.js"></script>
+    <script src="{{ asset('frontend') }}/js/main.js"></script>
   </body>
 </html>
-

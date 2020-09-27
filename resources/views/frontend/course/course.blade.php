@@ -6,12 +6,7 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-10 text-center">
-          <h1>Course <strong>Page</strong></h1>
-          {{-- <p>
-            <span class="mr-2 mb-2">1hr 24m</span> 
-            <span class="mr-2 mb-2">Advanced</span>
-            <span class="mr-2 mb-2">Jun 18, 2020</span>
-          </p> --}}
+          <h1>Course Page</h1>
         </div>
       </div>
     </div>
@@ -36,7 +31,7 @@
                 </p>
                 
                 <p class="mb-0">
-                  <a href="" class="btn btn-success custom-btn">Join Now</a>
+                  {{-- <a href="" class="btn btn-success custom-btn">Join Now</a> --}}
                 </p>
               </div>
             </div>
@@ -54,28 +49,34 @@
         <div class="col-md-12">
           <ul class="list-unstyled tutorial-section-list">
 
-            <li class="border mb-3">              
-              <h3><span>Assignment Title: course outline</span></h3>
-              <p>
-                <span class="mr-2 mb-2">Published by: Admin | Due date: 20/09/2020</span> 
-              </p>
-              <hr>
-              <p>
-                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime aspernatur illum et aliquid facere. Quia culpa animi sit natus impedit rerum saepe nam? Sequi esse, autem rerum animi cum quaerat.</span>
-              </p>
-              <div class="d-flex mt-2">
-                <a href="#" class="btn btn-info btn-sm mr-2">View</a>
-                <a href="#" class="btn btn-success btn-sm">Download</a>
-              </div>
-            </li>    
+            @forelse ($course->assignments as $assignment)          
+              <li class="border mb-3">              
+                <h3><span>Assignment Title: {{ $assignment->title }}</span></h3>
+                <p>
+                  <span class="mr-2 mb-2">Published by: Admin | Due date: 20/09/2020</span> 
+                </p>
+                <hr>
+                <p>
+                  <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime aspernatur illum et aliquid facere. Quia culpa animi sit natus impedit rerum saepe nam? Sequi esse, autem rerum animi cum quaerat.</span>
+                </p>
+                <div class="d-flex mt-2">
+                  <a href="#" class="btn btn-info btn-sm mr-2">View</a>
+                  <a href="#" class="btn btn-success btn-sm">Download</a>
+                </div>
+              </li>              
+            @empty
+              <li class="border my-3">
+                <h3>No assignment is published yet</h3>
+              </li>                
+            @endforelse
             
-            <li>
+            {{-- <li>
               <h3><a href="#">How to install dependency</a></h3>
               <p>
                 <span class="mr-2 mb-2">1hr 24m</span> 
               </p>
               <a href="#" class="play">Play</a>
-            </li>
+            </li> --}}
 
           </ul>
         </div>        

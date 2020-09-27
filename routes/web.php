@@ -28,6 +28,8 @@ Route::get('/contact', 'FrontendController@contact')->name('contact');
 
 Route::get('/courses/{course}', 'FrontendController@singleCourse')->name('courses');
 
+// Route::get('/home', 'FrontendController@');
+
 
 // Admin Routes
 Route::group([
@@ -35,7 +37,7 @@ Route::group([
     'middleware' => ['auth', 'admin']], function() {
 
     // Admin Dashboard
-    Route::get('/home', 'HomeController@dashboard')->name('dashboard');
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
     // Role routes
     Route::resource('roles', 'RoleController');
@@ -59,7 +61,11 @@ Route::group([
     'middleware' => ['auth', 'teacher']], function() {
 
     // Teacher Dashboard
-    Route::get('/home', 'HomeController@dashboard')->name('dashboard');
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+
+    // Course Dashboard
+    Route::get('/home', 'HomeController@home')->name('home');
+
 
 });
 
@@ -70,6 +76,9 @@ Route::group([
     'middleware' => ['auth', 'student']], function() {
 
     // Student Dashboard
-    Route::get('/home', 'HomeController@dashboard')->name('dashboard');
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+
+    // Course Dashboard
+    Route::get('/home', 'HomeController@home')->name('home');
 
 });

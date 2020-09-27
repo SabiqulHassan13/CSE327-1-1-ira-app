@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Assignment;
 
 class FrontendController extends Controller
 {
@@ -25,8 +26,13 @@ class FrontendController extends Controller
     }
 
     public function singleCourse(Course $course) {
+        // $assignments = Assignment::with(['course'])->latest();
+        // $assignments = Assignment::where('course_id', $course->id)->latest();
+
+        // return view('frontend.course.course', ['course' => $course, 'assignments' => $assignments]);
         return view('frontend.course.course', ['course' => $course]);
     }
+
 
 
 }

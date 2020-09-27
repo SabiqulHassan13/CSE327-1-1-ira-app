@@ -13,7 +13,7 @@
 
                         {{-- User Role selection --}}
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('User Role') }}</label>
+                            <label for="role_id" class="col-md-4 col-form-label text-md-right">{{ __('User Role') }}</label>
 
                             <div class="col-md-6">
                                 <select id="role_id" class="form-control" @error('role_id') is-invalid @enderror" name="role_id" value="{{ old('role_id') }}" required autocomplete="role_id" autofocus>

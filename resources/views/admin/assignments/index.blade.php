@@ -29,7 +29,7 @@
                         <td>{{ $assignment->id }}</td>
                         <td>{{ $assignment->title }}</td>
                         <td>{{ $assignment->description }}</td>
-                        <td>{{ $assignment->course_id }}</td>
+                        <td>{{ $assignment->course->title }}</td>
                         <td>{{ $assignment->due_at }}</td>                     
                         <td class="d-flex justify-content-between">
                             <a href="{{ route('admin.assignments.show', $assignment->id) }}" target="_blank" class="btn btn-info btn-sm mr-1"><i class="fa fa-sign-in-alt"></i></a>

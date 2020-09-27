@@ -12,4 +12,7 @@ class HomeController extends Controller
         return view('student.dashboard');
     }
 
+    public function home() {
+        return view('student.home');
+    }
 }
