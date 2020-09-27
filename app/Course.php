@@ -11,7 +11,7 @@ class Course extends Model
 
     // one course is belongs to one teacher
     public function user() {
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
 }

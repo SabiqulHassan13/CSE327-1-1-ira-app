@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
         // Teacher User
         $teacher = User::create([
             'role_id'           => 2,
-            'name'              => 'Teacher',
+            'name'              => 'Seeder Teacher',
             'email'             => 'teacher@gmail.com',
             'email_verified_at' => now(),
             'password'          => bcrypt('teacher123'), 
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
         // Student User
         $student = User::create([
             'role_id'           => 3,
-            'name'              => 'Student',
+            'name'              => 'Seeder Student',
             'email'             => 'student@gmail.com',
             'email_verified_at' => now(),
             'password'          => bcrypt('student123'), 

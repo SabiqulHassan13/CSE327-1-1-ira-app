@@ -17,10 +17,11 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::with(['user'])->get();
-        return $courses;
+        // return $courses;
         // $courses = Course::all();
         // $users = User::where('role_id', 2)->get();
-        return view('admin.courses.index', ['courses' => $courses, 'users' => $users]);
+        // return view('admin.courses.index', ['courses' => $courses, 'users' => $users]);
+        return view('admin.courses.index', ['courses' => $courses]);
     }
 
     /**
