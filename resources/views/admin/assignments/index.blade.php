@@ -10,6 +10,7 @@
             <a href="{{ route('admin.assignments.create') }}" class="btn btn-success py-0">Create an Assignment</a>
             </div>
             <!-- /.card-header -->
+
             <div class="card-body">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
@@ -31,9 +32,9 @@
                         <td>{{ $assignment->course_id }}</td>
                         <td>{{ $assignment->due_at }}</td>                     
                         <td class="d-flex justify-content-between">
-                            <a href="{{ asset('images/assignments/' . $assignment->file) }}" class="btn btn-info btn-sm mr-1"><i class="fa fa-sign-in-alt"></i></a>
+                            <a href="{{ route('admin.assignments.show', $assignment->id) }}" target="_blank" class="btn btn-info btn-sm mr-1"><i class="fa fa-sign-in-alt"></i></a>
 
-                            <a href="{{ route('admin.assignments.edit', $assignment->id) }}" class="btn btn-success btn-sm mr-1"><i class="fa fa-download"></i></a>
+                            <a href="{{ route('admin.assignments.download', $assignment->id) }}" class="btn btn-success btn-sm mr-1"><i class="fa fa-download"></i></a>
 
                             <a href="{{ route('admin.assignments.edit', $assignment->id) }}" class="btn btn-warning btn-sm mr-1"><i class="far fa-edit"></i></a>
 

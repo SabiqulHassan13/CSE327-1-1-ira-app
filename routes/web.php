@@ -48,6 +48,7 @@ Route::group([
 
     // Assignment routes
     Route::resource('assignments', 'AssignmentController');
+    Route::get('assignments/{id}/download', 'AssignmentController@download')->name('assignments.download');
 
 });
 
