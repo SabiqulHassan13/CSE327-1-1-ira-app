@@ -145,7 +145,8 @@ class AssignmentController extends Controller
         $assignment->due_at        = $request->due_at;           
         $assignment->save();           
 
-        return redirect()->route('teacher.home')->with('success','Assignment updated successfully');
+        // return redirect()->route('teacher.home')->with('success','Assignment updated successfully');
+        return redirect()->back()->with('success','Assignment updated successfully');
     }
 
     /**
@@ -157,5 +158,14 @@ class AssignmentController extends Controller
     public function destroy($id)
     {
         //
+        $assignment = Assignment::where('id', $id)->first();
+
+        if($assignment->file) {
+            // unlink('images/assignment/' . $assignment->file);
+            unlink(public_path('images/assignments/' . $assignment->file));
+        }
+        $assignment->delete();
+
+        return redirect()->back()->with('success','Assignment deleted successfully');
     }
 }

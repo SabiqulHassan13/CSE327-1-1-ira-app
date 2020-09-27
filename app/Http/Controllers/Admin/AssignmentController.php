@@ -184,6 +184,8 @@ class AssignmentController extends Controller
 
         if($assignment->file) {
             // unlink('images/assignment/' . $assignment->file);
+            unlink(public_path('images/assignments/' . $assignment->file));
+
         }
         $assignment->delete();
 

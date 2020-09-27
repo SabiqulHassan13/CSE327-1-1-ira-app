@@ -69,7 +69,8 @@
                 <div class="d-flex mt-2">
                   <a href="{{ route('assignments.show', $assignment->id) }}" class="btn btn-info btn-sm mr-2">View</a>
                   <a href="{{ route('assignments.download', $assignment->id) }}" class="btn btn-success btn-sm mr-2">Download</a>
-                  <a href="{{ route('teacher.assignments.edit', $assignment->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                  <a href="{{ route('teacher.assignments.edit', $assignment->id) }}" class="btn btn-warning btn-sm mr-2">Edit</a>
+                  {{-- <a href="{{ route('teacher.assignments.destroy', $assignment->id) }}" class="btn btn-danger btn-sm">Delete</a> --}}
                 </div>
               </li>              
             @empty
