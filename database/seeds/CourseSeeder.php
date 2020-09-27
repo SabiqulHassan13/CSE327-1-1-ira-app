@@ -15,10 +15,10 @@ class CourseSeeder extends Seeder
     {
         // course1
         $course1 = Course::create([
-            'user_id'       => 1,
+            'user_id'       => 2,
             'title'         => 'HTML5 crash course',
             'slug'          => Str::slug('HTML5 crash course', '-'),
-            'image'         => 'images/default/html5.jpg',
+            'image'         => 'html5.jpg',
             'short_text'    => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, est?',
             'long_text'     => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nihil aliquam voluptatum beatae quibusdam iure temporibus enim, libero voluptatibus odio nemo impedit voluptates provident expedita consequatur quas consectetur? Id, voluptatem!',
             'joining_code' => 'html5b01',
@@ -29,10 +29,10 @@ class CourseSeeder extends Seeder
 
         // course2
         $course2 = Course::create([
-            'user_id'       => 1,
+            'user_id'       => 2,
             'title'         => 'CSS3 crash course',
             'slug'          => Str::slug('CSS3 crash course', '-'),
-            'image'         => 'images/default/css3.jpg',
+            'image'         => 'css3.jpg',
             'short_text'    => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, est?',
             'long_text'     => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nihil aliquam voluptatum beatae quibusdam iure temporibus enim, libero voluptatibus odio nemo impedit voluptates provident expedita consequatur quas consectetur? Id, voluptatem!',
             'joining_code' => 'css3b01',
@@ -43,10 +43,10 @@ class CourseSeeder extends Seeder
 
         // course3
         $course3 = Course::create([
-            'user_id'       => 1,
+            'user_id'       => 2,
             'title'         => 'JS crash course',
             'slug'          => Str::slug('JS crash course', '-'),
-            'image'         => 'images/default/js.png',
+            'image'         => 'js.png',
             'short_text'    => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, est?',
             'long_text'     => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nihil aliquam voluptatum beatae quibusdam iure temporibus enim, libero voluptatibus odio nemo impedit voluptates provident expedita consequatur quas consectetur? Id, voluptatem!',
             'joining_code' => 'jsb01',

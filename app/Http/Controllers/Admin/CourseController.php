@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Course;
+use App\User;
 
 class CourseController extends Controller
 {
@@ -15,9 +16,11 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
-        $courses = Course::all();
-        return view('admin.courses.index', ['courses' => $courses]);
+        $courses = Course::with(['user'])->get();
+        return $courses;
+        // $courses = Course::all();
+        // $users = User::where('role_id', 2)->get();
+        return view('admin.courses.index', ['courses' => $courses, 'users' => $users]);
     }
 
     /**
@@ -28,6 +31,8 @@ class CourseController extends Controller
     public function create()
     {
         //
+        $users = User::where('role_id', 2)->get();
+        return view('admin.courses.create', ['users' => $users]);
     }
 
     /**
@@ -39,6 +44,25 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'title'      => 'required',
+            'short_text'      => 'required',
+            'long_text'      => 'required',
+            'batch_no'      => 'required',
+            'long_text'      => 'required',
+            'email'     =>  'required',
+            'password'  =>  'required|min:6',
+            'role_id'   =>  'required',
+        ]);
+
+        User::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => bcrypt($request->password),
+            'role_id'   => $request->role_id,
+        ]);
+
+        return redirect()->route('admin.users.index')->with('success','User created successfully');
     }
 
     /**

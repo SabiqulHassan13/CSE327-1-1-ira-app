@@ -31,7 +31,7 @@
                         <td>{{ $course->id }}</td>
                         <td>{{ $course->title }}</td>
                         <td><img src="{{ asset($course->image) }}" alt="" width="70" height="50"></td>
-                        <td>{{ $course->id }}</td>
+                        <td>{{ $course->user_id }}</td>
                         <td>{{ $course->joining_code }}</td>
                         <td>{{ $course->batch_no }}</td>
                         <td>{{ $course->started_at }}</td>

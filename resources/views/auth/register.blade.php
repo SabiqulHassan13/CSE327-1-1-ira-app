@@ -11,6 +11,26 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                        {{-- User Role selection --}}
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('User Role') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="role_id" class="form-control" @error('role_id') is-invalid @enderror" name="role_id" value="{{ old('role_id') }}" required autocomplete="role_id" autofocus>
+                                    <option selected>Select your role </option>
+                                    @foreach ($roles as $role)                                          
+                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('role_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
