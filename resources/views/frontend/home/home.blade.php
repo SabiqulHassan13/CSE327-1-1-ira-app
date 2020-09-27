@@ -39,30 +39,31 @@
           </div>
         </div>
         <div class="col-md-12">
-          
+          @foreach ($courses as $course)              
           <div class="d-flex tutorial-item mb-4">
             <div class="img-wrap">
-              <a href="#"><img src="{{ asset('frontend') }}/images/img_1.jpg" alt="Image" class="img-fluid"></a>
+              <a href="#"><img src="{{ asset('images/default/' . $course->image) }}" alt="Image" class="img-fluid"></a>
             </div>
             <div>
-              <h3><a href="#">Learning React Native</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam tempore, saepe numquam. Doloremque culpa tenetur facere quisquam, animi illum possimus!</p>
-              
-              <p class="mb-0">
-                <span class="brand-react h5"></span>
-                <span class="brand-javascript h5"></span>
+              <h3><a href="#">{{ $course->title }}</a></h3>
+              <p>{{ $course->short_text }}</p>
+
+              <p class="meta">
+                <span class="mr-2">Course Instructor: </span>
+                <span class="mr-2">{{ $course->user->name }}</span>
               </p>
               <p class="meta">
                 <span class="mr-2 mb-2">1hr 24m</span>
-                <span class="mr-2 mb-2">Advanced</span>
-                <span class="mr-2 mb-2">Jun 18, 2020</span>
+                <span class="mr-2 mb-2">Started at</span>
+                <span class="mr-2 mb-2">{{ $course->started_at }}</span>
               </p>
               
               <p><a href="{{ route('course') }}" class="btn btn-primary custom-btn">View</a></p>
             </div>
           </div>
-
-          <div class="d-flex tutorial-item mb-4">
+          @endforeach
+          
+          {{-- <div class="d-flex tutorial-item mb-4">
             <div class="img-wrap">
               <a href="#"><img src="{{ asset('frontend') }}/images/img_2.jpg" alt="Image" class="img-fluid"></a>
             </div>
@@ -120,10 +121,13 @@
               </p>
               <p><a href="tutorial-single.html" class="btn btn-primary custom-btn">View</a></p>
             </div>
+          </div> --}}
+
+          <div class="text-center d-flex">
+            {{ $courses->links() }}
           </div>
 
-
-          <div class="custom-pagination">
+          {{-- <div class="custom-pagination">
             <ul class="list-unstyled">
               <li><a href="#"><span>1</span></a></li>
               <li><span>2</span></li>
@@ -131,7 +135,7 @@
               <li><a href="#"><span>4</span></a></li>
               <li><a href="#"><span>5</span></a></li>
             </ul>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>

@@ -30,7 +30,7 @@
                     <tr>
                         <td>{{ $course->id }}</td>
                         <td>{{ $course->title }}</td>
-                        <td><img src="{{ asset($course->image) }}" alt="" width="70" height="50"></td>
+                        <td><img src="{{ asset('images/default/' . $course->image) }}" alt="" width="70" height="50"></td>
                         <td>{{ $course->user->name }}</td>
                         <td>{{ $course->joining_code }}</td>
                         <td>{{ $course->batch_no }}</td>
