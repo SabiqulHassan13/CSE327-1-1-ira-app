@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     //
-    protected $guraded = [];
+    protected $guarded = [];
+
+    // 
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 
     // one course is belongs to one teacher
     public function user() {

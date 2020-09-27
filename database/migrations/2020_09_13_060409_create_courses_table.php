@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('user_id');  // For teacher
             $table->string('title');
             $table->string('slug');
-            $table->string('image')->nullable();
+            $table->text('image')->nullable();
             $table->string('short_text')->nullable();
             $table->longText('long_text')->nullable();
             $table->string('joining_code');
