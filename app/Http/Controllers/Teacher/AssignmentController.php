@@ -43,7 +43,7 @@ class AssignmentController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        // return $request->all();
         
         $this->validate($request, [
             'title'         => 'required',
@@ -84,7 +84,7 @@ class AssignmentController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

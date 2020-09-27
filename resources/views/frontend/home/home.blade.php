@@ -14,7 +14,7 @@
 
   <div class="site-section bg-light">
     <div class="container">
-      <div class="row mb-5 align-items-center">
+      {{-- <div class="row mb-5 align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <form action="#" class="d-flex search-form">
             <span class="icon-"></span>
@@ -30,7 +30,7 @@
           <a href="#" class="mx-2 social-item"><span class="icon-linkedin"></span></a>
           </div>
         </div>
-      </div>
+      </div> --}}
       <div class="row">
         <div class="col-12">
           <div class="heading mb-4">
@@ -55,7 +55,12 @@
               
               <p class="mb-0">
                 <a href="{{ route('courses', [$course->id]) }}" class="btn btn-primary custom-btn">Read More</a>
-                <a href="" class="btn btn-success custom-btn">Join Now</a>
+                @if(Auth::check())
+                    @if(Auth::user()->role_id && Auth::user()->role_id == 3)
+                      <a href="{{ route('student.enrolment.create', [$course->id]) }}" class="btn btn-success custom-btn">Enroll Now</a>
+                    @endif
+                @endif
+
               </p>
             </div>
           </div>

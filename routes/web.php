@@ -27,8 +27,10 @@ Route::get('/team', 'FrontendController@team')->name('team');
 Route::get('/contact', 'FrontendController@contact')->name('contact');
 
 Route::get('/courses/{course}', 'FrontendController@singleCourse')->name('courses');
+Route::get('/assignments/{id}/download', 'FrontendController@downloadAssignment')->name('assignments.download');
+Route::get('/assignments/{id}/show', 'FrontendController@showAssignment')->name('assignments.show');
 
-// Route::get('/home', 'FrontendController@');
+
 
 
 // Admin Routes
@@ -50,7 +52,6 @@ Route::group([
 
     // Assignment routes
     Route::resource('assignments', 'AssignmentController');
-    Route::get('assignments/{id}/download', 'AssignmentController@download')->name('assignments.download');
 
 });
 
@@ -71,6 +72,7 @@ Route::group([
 
     // Assignment routes
     Route::resource('assignments', 'AssignmentController');
+    Route::get('assignments/{id}/download', 'AssignmentController@download')->name('assignments.download');
 
 
 });
@@ -86,5 +88,11 @@ Route::group([
 
     // Course Dashboard
     Route::get('/home', 'HomeController@home')->name('home');
+
+    // Enrolement in Course
+    Route::get('/enrolments', 'EnrolementController@index')->name('enrolment.index');
+    Route::get('/enrolments/create', 'EnrolementController@create')->name('enrolment.create');
+    Route::post('/enrolments', 'EnrolementController@store')->name('enrolment.store');
+
 
 });

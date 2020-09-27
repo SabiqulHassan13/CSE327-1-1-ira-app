@@ -33,7 +33,26 @@ class FrontendController extends Controller
         return view('frontend.course.course', ['course' => $course]);
     }
 
+    public function downloadAssignment($id)
+    {
+        //
+        $assignment = Assignment::where('id', $id)->first();
+        $pathToFile = 'images/assignments/' . $assignment->file;
 
+        // dd($pathToFile);
+        return response()->download($pathToFile);
+    }
+
+    public function showAssignment($id)
+    {
+        //
+        $assignment = Assignment::where('id', $id)->first();
+        $pathToFile = 'images/assignments/' . $assignment->file;
+
+        // dd($pathToFile);
+        return response()->file($pathToFile);
+
+    }
 
 }
 

@@ -25,4 +25,9 @@ class Course extends Model
         return $this->hasMany('App\Assignment');
     }
 
+    // one course has many enrolments
+    public function enrolments() {
+        return $this->hasMany('App\Enrolment');
+    }
+
 }

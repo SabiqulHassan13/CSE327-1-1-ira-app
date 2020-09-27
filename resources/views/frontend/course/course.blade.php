@@ -32,9 +32,13 @@
                 
                 <p class="mt-1">
                   {{-- <a href="" class="btn btn-success custom-btn">Join Now</a> --}}
-                  @if($course->user_id == auth()->user()->id)
-                    <a href="{{ route('teacher.assignments.create', ['course_id' => $course->id]) }}" class="btn btn-success custom-btn">Create an assignment</a>
+                  @if(Auth::check())
+                      @if(Auth::user()->role_id && Auth::user()->role_id == 2 && $course->user_id == Auth::user()->id)
+                        <a href="{{ route('teacher.assignments.create', ['course_id' => $course->id]) }}" class="btn btn-success custom-btn">Create an assignment</a>
+                      @endif
                   @endif
+                  {{-- @if($course->user_id == auth()->user()->id)
+                  @endif --}}
                 </p>
               </div>
             </div>
@@ -63,8 +67,8 @@
                   <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime aspernatur illum et aliquid facere. Quia culpa animi sit natus impedit rerum saepe nam? Sequi esse, autem rerum animi cum quaerat.</span>
                 </p>
                 <div class="d-flex mt-2">
-                  <a href="#" class="btn btn-info btn-sm mr-2">View</a>
-                  <a href="#" class="btn btn-success btn-sm">Download</a>
+                  <a href="{{ route('assignments.show', $assignment->id) }}" class="btn btn-info btn-sm mr-2">View</a>
+                  <a href="{{ route('assignments.download', $assignment->id) }}" class="btn btn-success btn-sm">Download</a>
                 </div>
               </li>              
             @empty
@@ -73,13 +77,6 @@
               </li>                
             @endforelse
             
-            {{-- <li>
-              <h3><a href="#">How to install dependency</a></h3>
-              <p>
-                <span class="mr-2 mb-2">1hr 24m</span> 
-              </p>
-              <a href="#" class="play">Play</a>
-            </li> --}}
 
           </ul>
         </div>        
