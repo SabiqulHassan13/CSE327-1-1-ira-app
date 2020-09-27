@@ -22,7 +22,7 @@
             <h2>Courses</h2>
           </div>
           <div>
-            <a href="" class="btn btn-success border-0">Create a course</a>
+          <a href="{{ route('teacher.courses.create') }}" class="btn btn-success border-0">Create a course</a>
           </div>
         </div>
         <div class="col-lg-12">   
@@ -42,7 +42,10 @@
               
               <p class="mb-0">
                 <a href="{{ route('courses', [$course->id]) }}" class="btn btn-primary custom-btn">Read More</a>
-                <a href="" class="btn btn-success custom-btn">Join Now</a>
+                {{-- <a href="" class="btn btn-success custom-btn">Join Now</a> --}}
+                @if($course->user_id == auth()->user()->id)
+                  <a href="{{ route('teacher.courses.edit', $course->id) }}" class="btn btn-warning custom-btn">Edit Course</a>
+                @endif
               </p>
             </div>
           </div>

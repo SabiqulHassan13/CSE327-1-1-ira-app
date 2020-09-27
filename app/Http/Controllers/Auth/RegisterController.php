@@ -30,8 +30,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo;
+    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo;
 
     /**
      * Create a new controller instance.
@@ -40,15 +40,15 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        if (Auth::check() && Auth::user()->role->id == 1) {
-            $this->redirectTo = route('admin.dashboard');
-        }
-        else if (Auth::check() && Auth::user()->role->id == 2) {
-            $this->redirectTo = route('teacher.dashboard');
-        }
-        else if (Auth::check() && Auth::user()->role->id == 3) {
-            $this->redirectTo = route('student.dashboard');
-        }
+        // if (Auth::check() && Auth::user()->role->id == 1) {
+        //     $this->redirectTo = route('admin.dashboard');
+        // }
+        // else if (Auth::check() && Auth::user()->role->id == 2) {
+        //     $this->redirectTo = route('teacher.dashboard');
+        // }
+        // else if (Auth::check() && Auth::user()->role->id == 3) {
+        //     $this->redirectTo = route('student.dashboard');
+        // }
 
         $this->middleware('guest');
     }

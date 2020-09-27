@@ -66,6 +66,9 @@ Route::group([
     // Course Dashboard
     Route::get('/home', 'HomeController@home')->name('home');
 
+    // Course routes
+    Route::resource('courses', 'CourseController');
+
 
 });
 
