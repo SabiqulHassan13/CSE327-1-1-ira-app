@@ -30,8 +30,11 @@
                   <span class="mr-2">| Started at: {{ $course->started_at }}</span>
                 </p>
                 
-                <p class="mb-0">
+                <p class="mt-1">
                   {{-- <a href="" class="btn btn-success custom-btn">Join Now</a> --}}
+                  @if($course->user_id == auth()->user()->id)
+                    <a href="" class="btn btn-success custom-btn">Create an assignment</a>
+                  @endif
                 </p>
               </div>
             </div>
